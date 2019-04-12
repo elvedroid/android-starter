@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-public class DeviceUtil {
+public final class DeviceUtil {
     private DeviceUtil() {
     }
 

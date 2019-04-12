@@ -1,5 +1,7 @@
 package com.elveselimoski.starterapp.di.repo;
 
+import com.elveselimoski.starterapp.data.preferences.shared.SharedPrefs;
+import com.elveselimoski.starterapp.data.preferences.shared.SharedPrefsImpl;
 import com.elveselimoski.starterapp.data.repo.service.RestService;
 import com.elveselimoski.starterapp.json.GsonUtil;
 import com.elveselimoski.starterapp.json.OkHttpClientUtil;
@@ -24,13 +26,13 @@ public class RepoModule {
 
     @Provides
     @Singleton
-    public RestService provideRest(Retrofit retrofit) {
+    RestService provideRest(Retrofit retrofit) {
         return retrofit.create(RestService.class);
     }
 
     @Provides
     @Singleton
-    public Retrofit provideRetrofit() {
+    Retrofit provideRetrofit() {
         return new Retrofit.Builder()
                 .client(OkHttpClientUtil.defaultHttpClient)
                 .baseUrl(baseUrl)
@@ -41,7 +43,13 @@ public class RepoModule {
 
     @Provides
     @Singleton
-    public SchedulerProvider provideSchedulerProvider(DefaultSchedulerProvider defaultSchedulerProvider) {
+    SchedulerProvider provideSchedulerProvider(DefaultSchedulerProvider defaultSchedulerProvider) {
         return defaultSchedulerProvider;
+    }
+
+    @Provides
+    @Singleton
+    SharedPrefs provideSharedPrefs(SharedPrefsImpl sharedPrefs) {
+        return sharedPrefs;
     }
 }

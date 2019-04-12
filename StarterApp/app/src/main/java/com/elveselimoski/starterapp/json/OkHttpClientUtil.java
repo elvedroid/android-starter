@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class OkHttpClientUtil {
+public final class OkHttpClientUtil {
 
     private static final long TIMEOUT_IN_SECONDS = 5L;
     private static OkHttpClient.Builder defaultHttpCliendBuilder = new OkHttpClient.Builder()

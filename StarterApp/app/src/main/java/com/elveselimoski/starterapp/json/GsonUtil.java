@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.Date;
 
-public class GsonUtil {
+public final class GsonUtil {
 
     @VisibleForTesting
     private static GsonBuilder defaultGsonBuilder = new GsonBuilder()

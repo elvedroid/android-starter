@@ -1,13 +1,9 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
-
 android {
     compileSdkVersion rootProject.compile_sdk_version
     defaultConfig {
-        applicationId "com.elveselimoski.starterapplication"
+        applicationId "com.elveselimoski.starterapp"
         minSdkVersion rootProject.min_sdk_version
         targetSdkVersion rootProject.target_sdk_version
         versionCode 1
@@ -25,7 +21,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
     implementation "androidx.core:core-ktx:$rootProject.core_ktx_version"
     implementation "androidx.appcompat:appcompat:$rootProject.appcompat_version"
     implementation "androidx.legacy:legacy-support-v4:$rootProject.legacy_version"
@@ -34,9 +29,9 @@ dependencies {
     implementation "com.android.support:multidex:$rootProject.multidex_version"
 
     implementation "com.google.dagger:dagger:$rootProject.dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger_version"
     implementation "com.google.dagger:dagger-android:$rootProject.dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger_version"
 
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
@@ -47,9 +42,10 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
 
     implementation "com.github.bumptech.glide:glide:$rootProject.glide_version"
-    kapt "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide_version"
 
     testImplementation "junit:junit:$rootProject.junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.junit_ext_version"
     androidTestImplementation "androidx.test:runner:$rootProject.runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_core_version"
     testImplementation "org.mockito:mockito-core:$rootProject.mockito_version"

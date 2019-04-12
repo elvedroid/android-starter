@@ -1,6 +1,6 @@
 package com.elveselimoski.starterapp.util;
 
-public class Constants {
+public final class Constants {
     private Constants() {
     }
 }

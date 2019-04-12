@@ -1,7 +1,7 @@
 package com.elveselimoski.starterapp.di.app;
 
+import android.app.Application;
 import android.content.Context;
-import com.elveselimoski.starterapp.StarterApp;
 import dagger.Module;
 import dagger.Provides;
 
@@ -10,9 +10,9 @@ import javax.inject.Singleton;
 @Module
 public class AppModule {
 
-    private StarterApp app;
+    private Application app;
 
-    public AppModule(StarterApp app) {
+    public AppModule(Application app) {
         this.app = app;
     }
 
