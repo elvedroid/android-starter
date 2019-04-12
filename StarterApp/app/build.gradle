@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -33,6 +33,11 @@ dependencies {
     implementation "androidx.cardview:cardview:$rootProject.cardview_version"
     implementation "com.android.support:multidex:$rootProject.multidex_version"
 
+    implementation "com.google.dagger:dagger:$rootProject.dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger_version"
+    implementation "com.google.dagger:dagger-android:$rootProject.dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger_version"
+
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
 
@@ -42,7 +47,7 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
 
     implementation "com.github.bumptech.glide:glide:$rootProject.glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide_version"
 
     testImplementation "junit:junit:$rootProject.junit_version"
     androidTestImplementation "androidx.test:runner:$rootProject.runner_version"
